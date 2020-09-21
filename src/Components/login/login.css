@@ -1,0 +1,110 @@
+.login-main {
+    background-color: white;
+    height: 100vh;
+}
+
+.login-form {
+    width: 570px;
+    border: 1px solid #ABABAB;
+    border-radius: 4px;
+}
+
+.login-form .login-input {
+    width: 95%;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #C5C5C5;
+    margin-bottom: 2rem;
+}
+
+.login-form .login-btn {
+    width: 95%;
+    height: 40px;
+}
+
+.login-form h3 {
+    margin-bottom: 2rem;
+}
+
+.login-form a, span {
+    color: #F9A51A;
+}
+
+.login-form a:hover, span:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.auto-login {
+    width: 570px;
+    margin: auto;
+}
+
+.auto-login .logo {
+    width: 37px;
+    height: 37px;
+}
+
+.auto-login .button {
+    height: 40px;
+    margin: auto;
+    border: 1px solid #C7C7C7;
+    border-radius: 57px;
+    padding: 5px;
+    margin-bottom: 1rem;
+}
+
+.auto-login .button:hover {
+    cursor: pointer;
+}
+
+/* navigation */
+
+.login-main .logo-black {
+    width: 120.28px;
+}
+
+.login-main .login-btn {
+    background-color: #F9A51A;
+    border: none;
+    font-weight: 500;
+}
+
+.login-main .login-btn:hover {
+    background-color: #F9A51A;
+}
+
+.login-main .links {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 6px;
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    transition: 0.2s ease;
+    color: black;
+}
+
+.login-main .links:hover {
+    text-decoration: none;
+    border-bottom: 3px solid #F9A51A;
+}
+
+.login-main .nav-container {
+    padding: 1rem 5rem;
+}
+
+.login-main .input {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 10px;
+}
+
+.login-main .input:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.login-main .input-field {
+    margin-left: 82px;
+    height: 44px;
+    width: 370px;
+}

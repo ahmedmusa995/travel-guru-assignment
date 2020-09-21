@@ -1,0 +1,53 @@
+.logo {
+    width: 120.28px;
+}
+
+.login-btn {
+    background-color: #F9A51A;
+    color: black;
+    border: none;
+    font-weight: 500;
+}
+
+.login-btn:hover {
+    background-color: #F9A51A;
+    color: black;
+}
+
+.links {
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 6px;
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    transition: 0.2s ease;
+}
+
+.links:hover {
+    text-decoration: none;
+    color: white;
+    border-bottom: 3px solid #F9A51A;
+}
+
+.nav-container {
+    padding: 1rem 5rem;
+}
+
+.input {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 10px;
+}
+
+.input:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.input-field {
+    margin-left: 82px;
+    height: 44px;
+    width: 370px;
+    color: white;
+}

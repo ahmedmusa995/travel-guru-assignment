@@ -1,0 +1,15 @@
+.place:hover {
+    border: 5px solid #F9A51A;
+    cursor: pointer;
+}
+
+.place {
+    transition: .2s ease-in-out;
+}
+
+.card-style {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-image: linear-gradient(0.12deg, #000000 0.1%, rgba(0, 0, 0, 0) 69.96%);
+}

@@ -1,0 +1,13 @@
+.home-style {
+    height: 100vh;
+    background-image: url('../../assets/home-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.background-transparent {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+}

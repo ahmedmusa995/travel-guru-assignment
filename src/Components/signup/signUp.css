@@ -1,0 +1,27 @@
+.signup-area {
+    background-color: white;
+}
+
+.form-area {
+    width: 570px;
+    border: 1px solid #ABABAB;
+}
+
+.form-area .signup-input {
+    width: 95%;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid #C5C5C5;
+}
+
+.form-area .signup-btn {
+    width: 95%;
+    height: 40px;
+    background-color: #F9A51A;
+    border: none;
+}
+
+.form-area span {
+    color: #F9A51A;
+    cursor: pointer;
+}

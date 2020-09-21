@@ -1,0 +1,15 @@
+.login .button {
+    width: 80%;
+    height: 40px;
+    margin: auto;
+    border: 1px solid #C7C7C7;
+    border-radius: 57px;
+    padding: 5px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.login .logo {
+    width: 37px;
+    height: 37px;
+}

@@ -1,0 +1,40 @@
+.place-details {
+    height: 100vh;
+    color: white;
+}
+
+.form-area {
+    width: 470px;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    padding: 1rem;
+}
+
+.form-area input {
+    width: 95%;
+    height: 60px;
+    background-color: #F2F2F2;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.form-area label {
+    color: black;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.start-booking-btn {
+    background-color: #F9A51A !important;
+    margin-bottom: 2rem;
+}
+
+::placeholder {
+    color: black;
+    font-weight: normal;
+}

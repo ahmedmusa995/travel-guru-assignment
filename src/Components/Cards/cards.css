@@ -1,0 +1,18 @@
+.toggler {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: .7rem;
+    margin: .5rem;
+    border-radius: 50%;
+    border: none;
+}
+
+.book-btn {
+    color: black;
+    background-color: #F9A51A;
+}
+
+.description-area {
+    padding-left: 5rem;
+    color: white;
+}
