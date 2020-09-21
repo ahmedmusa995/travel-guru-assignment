@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, useHistory, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { PlaceData } from './assets/PlaceData/PlaceData';
 import Booking from './Components/booking/Booking';
 import Destination from './Components/Destination/Destination';
@@ -7,7 +7,6 @@ import Home from './Components/Home/Home';
 import Login from './Components/login/Login';
 import NotFound from './Components/NotFound/NotFound';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
-import SignUp from './Components/signup/SignUp';
 
 export const placeContext = createContext();
 export const userContext = createContext();

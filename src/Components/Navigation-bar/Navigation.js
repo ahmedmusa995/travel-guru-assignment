@@ -10,7 +10,6 @@ import { userContext } from '../../App';
 const Navigation = () => {
     const history = useHistory()
     const [signedUser, setSignedUser] = useContext(userContext);
-    const userPhoto = <div style={{ width: '40px', height: '40px' }}><img style={{ width: "100%", borderRadius: '50%', border: '1px solid # #F9A51A' }} src={signedUser.img} alt="user" /></div>;
     return (
         <Navbar className="nav-container">
             <Navbar.Brand href="/" className="logo"><img className="img-fluid" src={logo} alt="logo" /></Navbar.Brand>
@@ -23,7 +22,7 @@ const Navigation = () => {
                 <a className="links" href="/">Blog</a>
                 <a className="links" href="/">Contact</a>
                 {
-                    signedUser.img ? userPhoto : <Button className="login-btn" onClick={() => history.push("/login")}>Login</Button>
+                    signedUser.email ? <Button className="signOut-btn" onClick={() => setSignedUser({})}>Sign Out</Button> : <Button className="login-btn" onClick={() => history.push("/login")}>Login</Button>
                 }
             </Nav>
         </Navbar >

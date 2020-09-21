@@ -70,6 +70,16 @@
     font-weight: 500;
 }
 
+.signOut-btn {
+    background-color: #F9A51A;
+    border: none;
+    font-weight: 500;
+}
+
+.signOut-btn:hover {
+    background-color: #F9A51A;
+}
+
 .login-main .login-btn:hover {
     background-color: #F9A51A;
 }

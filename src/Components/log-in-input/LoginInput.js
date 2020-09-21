@@ -1,38 +1,42 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 import './loginInput.css';
 import "firebase/auth";
 import { userContext } from '../../App';
 import * as firebase from "firebase/app";
 import "firebase/auth";
+import { useHistory, useLocation } from 'react-router-dom';
 
 const LoginInput = (props) => {
     const { toggler } = props;
-
+    const history = useHistory();
+    const location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
     const [signedUser, setSignedUser] = useContext(userContext);
 
-    const emailRef = useRef('');
-    const passwordRef = useRef('');
-
-    const handleInput = () => {
-        if (emailRef.current.value) {
-            const email = emailRef.current.value;
-            const updatedInfo = { ...signedUser };
-            updatedInfo['email'] = email;
-            setSignedUser(updatedInfo)
+    const handleInput = (event) => {
+        if (event.target.name === 'email') {
+            const email = event.target.value;
+            setSignedUser({ ...signedUser, email: email });
         }
-        if (passwordRef.current.value >= 8 && /\d{1}/.test(passwordRef.current.value)) {
-            const password = passwordRef.current.value;
-            const updatedInfo = { ...signedUser };
-            updatedInfo['password'] = password;
-            setSignedUser(updatedInfo)
+        if (event.target.name === 'password') {
+            const password = event.target.value;
+            setSignedUser({ ...signedUser, password: password });
         }
     };
 
     const handleSubmitLogin = (e) => {
         e.preventDefault();
         firebase.auth().signInWithEmailAndPassword(signedUser.email, signedUser.password)
-            .then(response => console.log(response))
-            .catch(error => console.log(error));
+            .then(response => {
+                const { email } = response.user
+                setSignedUser({ ...signedUser, email })
+                history.replace(from);
+            })
+            .catch(error => {
+                console.log(error)
+                setSignedUser({ ...signedUser, error: error.message })
+            });
+        console.log(signedUser)
     }
     return (
         <div className="login">
@@ -40,11 +44,12 @@ const LoginInput = (props) => {
                 <div className="login-form p-3">
                     <h3>Login</h3>
                     <form onSubmit={handleSubmitLogin}>
-                        <input name="email" onChange={handleInput} ref={emailRef} className="login-input" type="email" placeholder="Email" required /> <br />
-                        <input name="password" onChange={handleInput} ref={passwordRef} className="login-input" type="password" placeholder="Password" required /> <br />
+                        <input name="email" onChange={handleInput} className="login-input" type="email" placeholder="Email" required /> <br />
+                        <input name="password" onChange={handleInput} className="login-input" type="password" placeholder="Password" required /> <br />
+                        <p className="text-danger text-center"><small>{signedUser.error}</small></p>
                         <div className="row mx-0 mb-4">
                             <div className="col-6">
-                                <input type="checkbox" id="remember-me" /> <label for="remember-me">Remember me</label>
+                                <input type="checkbox" id="remember-me" /> <label htmlFor="remember-me">Remember me</label>
                             </div>
                             <div className="col-6 text-right">
                                 <a href="/">Forget Password</a>

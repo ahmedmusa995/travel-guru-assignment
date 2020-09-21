@@ -17,28 +17,57 @@ const SignUp = (props) => {
     const passwordRef = useRef();
     const confirmPasswordRef = useRef();
 
-    const handleInput = () => {
-        if (emailRef.current.value) {
-            setSignedUser({ ...signedUser, email: emailRef.current.value })
+    const handleInput = (event) => {
+        // if (emailRef.current.value) {
+        //     setSignedUser({ ...signedUser, email: emailRef.current.value })
+        // }
+        // if (passwordRef.current.value > 6 && /\d{1}/.test(passwordRef.current.value) && passwordRef.current.value === confirmPasswordRef.current.value) {
+        //     setSignedUser({ ...signedUser, password: passwordRef.current.value })
+        // }
+        // if (firstNameRef.current.value && lastNameRef.current.value) {
+        //     setSignedUser({ ...signedUser, name: firstNameRef.current.value + ' ' + lastNameRef.current.value })
+        // }
+
+        if (event.target.name === 'email') {
+            const email = event.target.value;
+            setSignedUser({ ...signedUser, email: email });
         }
-        if (passwordRef.current.value > 6 && /\d{1}/.test(passwordRef.current.value) && passwordRef.current.value === confirmPasswordRef.current.value) {
-            setSignedUser({ ...signedUser, password: passwordRef.current.value })
+        if (event.target.name === 'password') {
+            const password = event.target.value;
+            setSignedUser({ ...signedUser, password: password });
         }
-        if (firstNameRef.current.value && lastNameRef.current.value) {
-            setSignedUser({ ...signedUser, name: firstNameRef.current.value + ' ' + lastNameRef.current.value })
+        if (event.target.name === 'confirmPassword') {
+            const confirmPassword = event.target.value;
+            if (signedUser.password === confirmPassword) {
+                setSignedUser({ ...signedUser })
+            }
+            else {
+                setSignedUser({ ...signedUser, passError: "Password didn't match" })
+            }
+        }
+        if (event.target.name === 'first') {
+            const firstName = event.target.value;
+            setSignedUser({ ...signedUser, firstName: firstName })
+        }
+        if (event.target.name === 'last') {
+            const lastName = event.target.value;
+            setSignedUser({ ...signedUser, lastName: lastName })
         }
     };
 
     const handleSubmitSignUp = (e) => {
-        debugger;
         e.preventDefault();
-        if (signedUser.name && signedUser.email && signedUser.password) {
+        if (signedUser.firstName && signedUser.lastName && signedUser.email && signedUser.password) {
             firebase.auth().createUserWithEmailAndPassword(signedUser.email, signedUser.password)
-                .then(result => console.log(result))
+                .then(() => {
+                    const name = signedUser.firstName + ' ' + signedUser.lastName;
+                    setSignedUser({ ...signedUser, name })
+                })
                 .catch(error => {
                     console.log(error);
-                    alert('Something went wrong');
+                    setSignedUser({ ...signedUser, error: error.message })
                 });
+            console.log(signedUser)
         }
     };
     return (
@@ -52,7 +81,9 @@ const SignUp = (props) => {
                         <input onChange={handleInput} ref={emailRef} name="email" className="signup-input" type="text" placeholder="Email" required /> <br />
                         <input onChange={handleInput} ref={passwordRef} name="password" className="signup-input" type="password" placeholder="Password" required /> <br />
                         <input onChange={handleInput} ref={confirmPasswordRef} name="confirmPassword" className="signup-input" type="password" placeholder="Confirm Password" required /> <br />
+                        <p className="text-center"><small className="text-danger">{signedUser.passError}</small></p>
                         <input className="signup-btn" type="submit" value="Create Account" />
+                        <p className="text-danger text-center">{signedUser.error}</p>
                     </form>
                     <p className="text-center">Have an Account? <span onClick={toggler}>Login Here</span></p>
                 </div>

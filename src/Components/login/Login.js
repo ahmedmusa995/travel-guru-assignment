@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 import './login.css';
 import facebookLogo from '../../assets/fb.png';
 import googleLogo from '../../assets/google.png';
@@ -19,12 +19,6 @@ const Login = () => {
     let { from } = location.state || { from: { pathname: "/" } };
     const [signedUser, setSignedUser] = useContext(userContext);
 
-    const passwordRef = useRef();
-    const emailRef = useRef();
-    const confirmPasswordRef = useRef();
-    const firstNameRef = useRef();
-    const lastNameRef = useRef();
-
     if (firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig)
     }
@@ -37,7 +31,6 @@ const Login = () => {
                 const signedUser = { name: displayName, email, img: photoURL, isNew: false, error: '' };
                 setSignedUser(signedUser);
                 history.replace(from)
-                console.log(signedUser)
             })
             .catch(error => console.log(error));
     };
@@ -46,58 +39,17 @@ const Login = () => {
         const provider = new firebase.auth.FacebookAuthProvider();
         firebase.auth().signInWithPopup(provider)
             .then(result => {
-                const { email } = result.uh;
-                const signedUser = { email };
+                const { displayName, email, photoURL } = result.user;
+                const signedUser = { name: displayName, email, img: photoURL, isNew: false, error: '' };
                 setSignedUser(signedUser);
+                history.replace(from)
             })
-            .catch(error => { console.log(error); alert('error') });
+            .catch(error => {
+                console.log(error);
+                setSignedUser({ ...signedUser, error: error.message })
+            });
     }
 
-
-    const handleInputSignUp = (event) => {
-        event.preventDefault();
-        let isValid;
-        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(emailRef.value) && /\d{1}/.test(passwordRef.value) && passwordRef.value.length > 7 && passwordRef.value === confirmPasswordRef.value && firstNameRef && lastNameRef) {
-            isValid = true;
-            // if (isValid) {
-            //     const newUser = { ...signedUser, name: firstNameRef.value + lastNameRef.value, email: emailRef.value, password: passwordRef.value }
-            //     setSignedUser(newUser);
-            // }
-        }
-        // if (event.target.name === 'password') {
-        //     const isNumber = /\d{1}/.test(event.target.value);
-        //     isValid = isNumber && event.target.value.length > 7;
-        // }
-        // if ((event.target.name === 'confirmPassword') === (event.target.name === 'password')) {
-        //     isValid = true;
-        // }
-        // if ((event.target.name === 'first') && (event.target.name === 'last')) {
-        //     const newUser = { ...signedUser };
-        //     newUser['name'] = event.target.value + event.target.last.value;
-        //     setSignedUser(newUser);
-        // }
-        if (isValid) {
-            const newUser = { ...signedUser, name: firstNameRef.value + lastNameRef.value, email: emailRef.value, password: passwordRef.value }
-            setSignedUser(newUser);
-        }
-    }
-    const handleSubmitSignUp = (e) => {
-        e.preventDefault();
-        if (signedUser.email && signedUser.password && signedUser.password && signedUser.name) {
-            firebase.auth().createUserWithEmailAndPassword(signedUser.email, signedUser.password)
-                .then(result => console.log(result))
-                .catch(error => {
-                    console.log(error);
-                    alert('Something went wrong');
-                });
-        }
-    };
-    const handleSubmitLogin = (e) => {
-        e.preventDefault();
-
-
-    }
-    const userPhoto = <div style={{ width: '40px', height: '40px' }}><img style={{ width: "100%", borderRadius: '50%', border: '1px solid # #F9A51A' }} src={signedUser.img} alt="user" /></div>
 
     const toggler = () => {
         const isNewUser = { ...signedUser }
@@ -118,7 +70,7 @@ const Login = () => {
                     <a className="links" href="/">Blog</a>
                     <a className="links" href="/">Contact</a>
                     {
-                        signedUser.img ? userPhoto : <Button className="login-btn" onClick={() => history.push("/login")}>Login</Button>
+                        signedUser.email ? <Button className="signOut-btn" onClick={() => setSignedUser({})}>Sign Out</Button> : <Button className="login-btn" onClick={() => history.push("/login")}>Login</Button>
                     }
                 </Nav>
 
