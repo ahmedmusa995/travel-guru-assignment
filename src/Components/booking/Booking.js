@@ -1,13 +1,35 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { placeContext } from '../../App';
+import { placeContext, userContext } from '../../App';
 import './booking.css';
 
 const Booking = () => {
-    const [place] = useContext(placeContext);
-
+    const [place, setPlace] = useContext(placeContext);
+    const [signedUser, setSignedUser] = useContext(userContext)
     const history = useHistory()
-    const handleSubmit = () => {
+
+    const handleInput = (event) => {
+        if (event.target.name === 'origin') {
+            const origin = event.target.value;
+            setSignedUser({ ...signedUser, origin: origin })
+        }
+        if (event.target.name === 'destination') {
+            const destination = event.target.value;
+            setSignedUser({ ...signedUser, destination: destination })
+        }
+        if (event.target.name === 'from') {
+            const from = event.target.value;
+            setSignedUser({ ...signedUser, from: from })
+        }
+        if (event.target.name === 'to') {
+            const to = event.target.value;
+            setSignedUser({ ...signedUser, to: to })
+        }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setPlace({ ...place, target: place.target })
         history.push("/destination-details")
     }
     return (
@@ -22,18 +44,18 @@ const Booking = () => {
                         <div className="form-area">
                             <form onSubmit={handleSubmit}>
                                 <label>Origin</label> <br />
-                                <input type="text" placeholder="Starting Point" /> <br />
+                                <input onChange={handleInput} type="text" name="origin" placeholder="Starting Point" required /> <br />
 
                                 <label>Destination</label> <br />
-                                <input type="text" placeholder="Ending Point" /><br />
+                                <input onChange={handleInput} type="text" value={place.title} name="destination" placeholder="Ending Point" disabled /> <br />
                                 <div className="row m-0">
                                     <div className="col-6">
                                         <label>From</label> <br />
-                                        <input type="date" />
+                                        <input onChange={handleInput} name="from" type="date" required />
                                     </div>
                                     <div className="col-6">
                                         <label>To</label> <br />
-                                        <input type="date" />
+                                        <input onChange={handleInput} name="to" type="date" required />
                                     </div>
                                 </div>
                                 <input className="start-booking-btn" type="submit" value="Start Booking" />

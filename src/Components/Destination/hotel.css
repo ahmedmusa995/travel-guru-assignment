@@ -1,0 +1,23 @@
+.hotel {
+    width: 270px;
+    height: 188px;
+}
+
+.hotel-img {
+    border-radius: 10px;
+}
+
+.hotel-description ul {
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+.hotel-description .arrow {
+    height: 12px;
+    width: 12px;
+}
+
+.hotel-description .star {
+    height: 20px;
+    padding-bottom: 4px;
+}
