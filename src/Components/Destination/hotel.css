@@ -5,6 +5,8 @@
 
 .hotel-img {
     border-radius: 10px;
+    width: 95%;
+    height: 95%;
 }
 
 .hotel-description ul {

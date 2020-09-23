@@ -5,6 +5,8 @@ import { userContext } from '../../App';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import { useHistory, useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 const LoginInput = (props) => {
     const { toggler } = props;
@@ -34,9 +36,8 @@ const LoginInput = (props) => {
             })
             .catch(error => {
                 console.log(error)
-                setSignedUser({ ...signedUser, error: error.message })
+                setSignedUser({ ...signedUser, loginError: error.message, error: error.message })
             });
-        console.log(signedUser)
     }
     return (
         <div className="login">
@@ -46,7 +47,7 @@ const LoginInput = (props) => {
                     <form onSubmit={handleSubmitLogin}>
                         <input name="email" onChange={handleInput} className="login-input" type="email" placeholder="Email" required /> <br />
                         <input name="password" onChange={handleInput} className="login-input" type="password" placeholder="Password" required /> <br />
-                        <p className="text-danger text-center"><small>{signedUser.error}</small></p>
+                        <p className="text-danger text-center"><small>{signedUser.error && <FontAwesomeIcon icon={faTimesCircle} />} {signedUser.error}</small></p>
                         <div className="row mx-0 mb-4">
                             <div className="col-6">
                                 <input type="checkbox" id="remember-me" /> <label htmlFor="remember-me">Remember me</label>

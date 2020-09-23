@@ -13,7 +13,7 @@ const Cards = () => {
     const handleDescription = (id) => {
         const filteredPlace = PlaceData.filter(plc => plc.id === id);
         setPlace(filteredPlace[0]);
-        history.push("/destination")
+        history.push("/destination/" + place.target)
     };
 
     const handleHover = (id) => {
@@ -27,7 +27,7 @@ const Cards = () => {
                     <h1>{place.title}</h1>
                     <p>{place.description}</p>
                     {
-                        place.title && <button className="btn book-btn font-weight-bold" onClick={() => history.push("/destination")}>book now <ArrowForwardIcon /></button>
+                        place.title && <button className="btn book-btn font-weight-bold" onClick={() => history.push(`/destination/${place.target}`)}>book now <ArrowForwardIcon /></button>
                     }
                 </div>
                 <div className="col-7">

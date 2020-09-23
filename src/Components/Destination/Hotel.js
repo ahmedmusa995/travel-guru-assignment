@@ -4,13 +4,13 @@ import arrow from '../../assets/arrow.png';
 import starLogo from '../../assets/star.png';
 
 const Hotel = (props) => {
-    const { name, id, facility1, facility2, facility3, star, review, price, img, state } = props.hotel;
-    const [position, setPosition] = props.position;
-    setPosition(state);
+    const { name, id, facility1, facility2, facility3, star, review, price, img, lat, lng } = props.hotel;
+    const [latLng, setLatLng] = props.position;
+    setLatLng({ lat, lng });
     return (
         <div className="col-12 row m-0 d-flex justify-content-center align-items-center">
             <div className="col-5 hotel">
-                <img className="img-fluid hotel-img" src={img} alt={id} />
+                <img className="hotel-img" src={img} alt={id} />
             </div>
             <div className="col-7 hotel-description">
                 <h4 className="mb-3">{name}</h4>

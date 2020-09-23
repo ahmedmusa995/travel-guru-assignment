@@ -35,53 +35,29 @@
     cursor: pointer;
 }
 
-.auto-login {
-    width: 570px;
-    margin: auto;
+.auto-login button {
+    margin: 1rem;
+    padding: .2rem;
+    color: #F9A51A;
+    background-color: lightGray;
+    font-size: 2rem;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    height: 3.8rem;
+    width: 3.8rem;
+    transition: .2s ease;
 }
 
-.auto-login .logo {
-    width: 37px;
-    height: 37px;
-}
-
-.auto-login .button {
-    height: 40px;
-    margin: auto;
-    border: 1px solid #C7C7C7;
-    border-radius: 57px;
-    padding: 5px;
-    margin-bottom: 1rem;
-}
-
-.auto-login .button:hover {
-    cursor: pointer;
+.auto-login button:hover {
+    color: lightGray;
+    background-color: #F9A51A;
 }
 
 /* navigation */
 
 .login-main .logo-black {
     width: 120.28px;
-}
-
-.login-main .login-btn {
-    background-color: #F9A51A;
-    border: none;
-    font-weight: 500;
-}
-
-.signOut-btn {
-    background-color: #F9A51A;
-    border: none;
-    font-weight: 500;
-}
-
-.signOut-btn:hover {
-    background-color: #F9A51A;
-}
-
-.login-main .login-btn:hover {
-    background-color: #F9A51A;
 }
 
 .login-main .links {
@@ -103,18 +79,21 @@
     padding: 1rem 5rem;
 }
 
-.login-main .input {
-    background-color: rgba(255, 255, 255, 0.3);
+.search-input-field {
+    width: 500px;
+    margin-left: 2rem;
+    background-color: lightGray;
+    padding: .2rem .5rem;
     border: none;
-    border-radius: 10px;
+    border-radius: 5rem;
 }
 
-.login-main .input:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-.login-main .input-field {
-    margin-left: 82px;
-    height: 44px;
-    width: 370px;
+.search-input-field .search-input, .search-input:focus {
+    background-color: lightGray;
+    margin: auto;
+    padding: .5rem;
+    border: none;
+    border-radius: 5rem;
+    width: 95%;
+    outline: none;
 }

@@ -2,16 +2,19 @@
     width: 120.28px;
 }
 
-.login-btn {
-    background-color: #F9A51A;
-    color: black;
-    border: none;
+.login-btn, .signOut-btn {
+    background-color: transparent;
+    border: 2px solid #F9A51A;
     font-weight: 500;
+    border-radius: .3rem;
+    padding: 0 1rem;
+    color: #F9A51A;
+    transition: .2s ease;
 }
 
-.login-btn:hover {
+.login-btn:hover, login-btn:focus, .signOut-btn:hover, .signOut-btn:focus {
     background-color: #F9A51A;
-    color: black;
+    color: white;
 }
 
 .links {

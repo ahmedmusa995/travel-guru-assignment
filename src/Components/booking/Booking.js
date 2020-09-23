@@ -30,7 +30,7 @@ const Booking = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setPlace({ ...place, target: place.target })
-        history.push("/destination-details")
+        history.push("/destination-details/" + place.target)
     }
     return (
         <div className="home-style">
@@ -51,11 +51,11 @@ const Booking = () => {
                                 <div className="row m-0">
                                     <div className="col-6">
                                         <label>From</label> <br />
-                                        <input onChange={handleInput} name="from" type="date" required />
+                                        <input onChange={handleInput} name="from" type="date" />
                                     </div>
                                     <div className="col-6">
                                         <label>To</label> <br />
-                                        <input onChange={handleInput} name="to" type="date" required />
+                                        <input onChange={handleInput} name="to" type="date" />
                                     </div>
                                 </div>
                                 <input className="start-booking-btn" type="submit" value="Start Booking" />

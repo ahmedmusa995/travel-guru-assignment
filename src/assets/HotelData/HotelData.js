@@ -10,7 +10,8 @@ export const hotelData = [
         price: 43,
         img: 'https://media-cdn.tripadvisor.com/media/photo-w/11/be/3d/98/sea-front-deluxe-supreme.jpg',
         origin: 'coxBazar',
-        state: 'lat: 21.433920, lng: 91.987030'
+        lat: 21.433920,
+        lng: 91.987030
     },
     {
         name: 'Hotel The Cox Today',
@@ -23,7 +24,8 @@ export const hotelData = [
         price: 66,
         img: 'https://media-cdn.tripadvisor.com/media/photo-w/11/be/3c/7c/hotel-sea-crown.jpg',
         origin: 'coxBazar',
-        state: 'lat: 21.433920, lng: 91.987030'
+        lat: 21.433920,
+        lng: 91.987030
     },
     {
         name: 'Praasad Paradise Hotel & Resort',
@@ -36,7 +38,8 @@ export const hotelData = [
         price: 89,
         img: 'https://media-cdn.tripadvisor.com/media/photo-w/09/a2/61/3f/photo9jpg.jpg',
         origin: 'coxBazar',
-        state: 'lat: 21.433920, lng: 91.987030'
+        lat: 21.433920,
+        lng: 91.987030
     },
     {
         name: 'Green Leaf Guest House',
@@ -49,7 +52,8 @@ export const hotelData = [
         price: 109,
         img: 'https://media-cdn.tripadvisor.com/media/photo-w/12/d6/64/27/sea-view-juice-bar-and.jpg',
         origin: 'shreemangal',
-        state: 'lat: 24.310578, lng: 91.725133'
+        lat: 24.310578,
+        lng: 91.725133
     },
     {
         name: 'Hotel Skypark',
@@ -62,7 +66,8 @@ export const hotelData = [
         price: 46,
         img: 'https://media-cdn.tripadvisor.com/media/photo-w/11/be/3c/92/hotel-sea-crown.jpg',
         origin: 'shreemangal',
-        state: 'lat: 24.310578, lng: 91.725133'
+        lat: 24.310578,
+        lng: 91.725133
     },
     {
         name: 'Grand Selim Resort',
@@ -73,9 +78,10 @@ export const hotelData = [
         star: 4.8,
         review: 32,
         price: 43,
-        img: 'https://media-cdn.tripadvisor.com/media/photo-w/11/be/3c/8b/hotel-sea-crown.jpg',
+        img: 'https://media-cdn.tripadvisor.com/media/photo-w/11/be/3c/c5/hotel-sea-crown.jpg',
         origin: 'shreemangal',
-        state: 'lat: 24.310578, lng: 91.725133'
+        lat: 24.310578,
+        lng: 91.725133
     },
     {
         name: 'Divine Centre Ltd, Hotel and Convention Centre',
@@ -88,7 +94,8 @@ export const hotelData = [
         price: 43,
         img: 'https://media-cdn.tripadvisor.com/media/photo-w/09/a2/61/3c/photo6jpg.jpg',
         origin: 'sundarban',
-        state: 'lat: 22.243001, lng: 89.760117'
+        lat: 22.243001,
+        lng: 89.760117
     },
     {
         name: 'Tiger Garden International Hotel, Khulna Bangladesh',
@@ -99,9 +106,10 @@ export const hotelData = [
         star: 4.5,
         review: 32,
         price: 43,
-        img: 'https://media-cdn.tripadvisor.com/media/photo-w/11/be/3c/c5/hotel-sea-crown.jpg',
+        img: 'https://media-cdn.tripadvisor.com/media/photo-w/11/be/3c/8b/hotel-sea-crown.jpg',
         origin: 'sundarban',
-        state: 'lat: 22.243001, lng: 89.760117'
+        lat: 22.243001,
+        lng: 89.760117
     },
     {
         name: 'Hotel Royal International',
@@ -114,5 +122,6 @@ export const hotelData = [
         price: 129,
         img: 'https://media-cdn.tripadvisor.com/media/photo-w/06/05/fc/a2/hotel-sea-crown.jpg',
         origin: 'sundarban',
-        state: 'lat: 22.243001, lng: 89.760117'
+        lat: 22.243001,
+        lng: 89.760117
     }]  
