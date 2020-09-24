@@ -1,11 +1,10 @@
 .login-main {
     background-color: white;
-    height: 100vh;
 }
 
 .login-form {
     width: 570px;
-    border: 1px solid #ABABAB;
+    border: 1px solid #F9A51A;
     border-radius: 4px;
 }
 
@@ -13,8 +12,12 @@
     width: 95%;
     height: 30px;
     border: none;
-    border-bottom: 1px solid #C5C5C5;
+    border-bottom: 1px solid #F9A51A;
     margin-bottom: 2rem;
+}
+
+.login-form .login-input:focus {
+    outline: none;
 }
 
 .login-form .login-btn {
@@ -52,6 +55,11 @@
 .auto-login button:hover {
     color: lightGray;
     background-color: #F9A51A;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.auto-login button:focus {
+    outline: none;
 }
 
 /* navigation */
@@ -77,23 +85,4 @@
 
 .login-main .nav-container {
     padding: 1rem 5rem;
-}
-
-.search-input-field {
-    width: 500px;
-    margin-left: 2rem;
-    background-color: lightGray;
-    padding: .2rem .5rem;
-    border: none;
-    border-radius: 5rem;
-}
-
-.search-input-field .search-input, .search-input:focus {
-    background-color: lightGray;
-    margin: auto;
-    padding: .5rem;
-    border: none;
-    border-radius: 5rem;
-    width: 95%;
-    outline: none;
 }

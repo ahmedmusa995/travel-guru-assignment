@@ -7,6 +7,7 @@ import "firebase/auth";
 import { useHistory, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { forgetPassword } from '../userManagement/userManagemnet';
 
 const LoginInput = (props) => {
     const { toggler } = props;
@@ -22,7 +23,15 @@ const LoginInput = (props) => {
         }
         if (event.target.name === 'password') {
             const password = event.target.value;
-            setSignedUser({ ...signedUser, password: password });
+            if (password.length < 7) {
+                setSignedUser({ ...signedUser, passwordState: 'Password must be at least 8 characters with a number' })
+            }
+            else if (password.length > 7) {
+                setSignedUser({ ...signedUser, passwordState: ' ' })
+            }
+            else {
+                setSignedUser({ ...signedUser, password: password });
+            }
         }
     };
 
@@ -47,7 +56,7 @@ const LoginInput = (props) => {
                     <form onSubmit={handleSubmitLogin}>
                         <input name="email" onChange={handleInput} className="login-input" type="email" placeholder="Email" required /> <br />
                         <input name="password" onChange={handleInput} className="login-input" type="password" placeholder="Password" required /> <br />
-                        <p className="text-danger text-center"><small>{signedUser.error && <FontAwesomeIcon icon={faTimesCircle} />} {signedUser.error}</small></p>
+                        <p className="text-danger text-center"><small>{signedUser.error && <FontAwesomeIcon icon={faTimesCircle} />} {signedUser.error} {signedUser.passwordState}</small></p>
                         <div className="row mx-0 mb-4">
                             <div className="col-6">
                                 <input type="checkbox" id="remember-me" /> <label htmlFor="remember-me">Remember me</label>

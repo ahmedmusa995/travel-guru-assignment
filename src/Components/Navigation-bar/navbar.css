@@ -2,27 +2,25 @@
     width: 120.28px;
 }
 
-.login-btn, .signOut-btn {
+.login-btn, .signOut-btn, .signUp-btn {
     background-color: transparent;
     border: 2px solid #F9A51A;
-    font-weight: 500;
+    font-weight: 600;
     border-radius: .3rem;
-    padding: 0 1rem;
     color: #F9A51A;
     transition: .2s ease;
 }
 
-.login-btn:hover, login-btn:focus, .signOut-btn:hover, .signOut-btn:focus {
+.login-btn:hover, login-btn:focus, .signOut-btn:hover, .signOut-btn:focus, .signUp-btn:focus {
     background-color: #F9A51A;
     color: white;
 }
 
 .links {
     color: white;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 0 1rem;
     padding: 6px;
-    display: inline-block;
+    display: block;
     border-bottom: 3px solid transparent;
     transition: 0.2s ease;
 }
@@ -37,20 +35,14 @@
     padding: 1rem 5rem;
 }
 
-.input {
-    background-color: rgba(0, 0, 0, 0.3);
+.search-input, .search-input:focus {
+    background-color: lightGray;
+    height: 30px;
+    width: 400px;
+    margin: auto;
+    padding: 10px;
     border: none;
-    border-radius: 10px;
-}
-
-.input:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-    color: white;
-}
-
-.input-field {
-    margin-left: 82px;
-    height: 44px;
-    width: 370px;
-    color: white;
+    border-radius: 0 5rem 5rem 0;
+    outline: none;
+    display: inline-block;
 }

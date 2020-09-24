@@ -4,9 +4,8 @@ import arrow from '../../assets/arrow.png';
 import starLogo from '../../assets/star.png';
 
 const Hotel = (props) => {
-    const { name, id, facility1, facility2, facility3, star, review, price, img, lat, lng } = props.hotel;
-    const [latLng, setLatLng] = props.position;
-    setLatLng({ lat, lng });
+    const { name, id, facility1, facility2, facility3, star, review, price, img } = props.hotel;
+
     return (
         <div className="col-12 row m-0 d-flex justify-content-center align-items-center">
             <div className="col-5 hotel">
@@ -21,7 +20,7 @@ const Hotel = (props) => {
                 </ul>
                 <div className="d-flex justify-content-between">
                     <div><img className="star" src={starLogo} alt="arrow" /><p className="d-inline"> {star}({review})</p></div>
-                    <p>$ {price}/<p className="text-muted d-inline">per night</p></p>
+                    <p>$ {price}/<span className="text-muted d-inline">per night</span></p>
                 </div>
             </div>
         </div>

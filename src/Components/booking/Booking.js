@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { placeContext, userContext } from '../../App';
+import { hotelData } from '../../assets/HotelData/HotelData';
 import './booking.css';
 
 const Booking = () => {
     const [place, setPlace] = useContext(placeContext);
     const [signedUser, setSignedUser] = useContext(userContext)
-    const history = useHistory()
+    const history = useHistory();
+    const { targetPlace } = useParams();
 
     const handleInput = (event) => {
         if (event.target.name === 'origin') {
@@ -30,8 +32,12 @@ const Booking = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setPlace({ ...place, target: place.target })
-        history.push("/destination-details/" + place.target)
+        const origin = targetPlace;
+        const selectedPlace = hotelData.filter(selectedPlace => selectedPlace.origin === origin)
+        setPlace({ ...place, selectedPlace: selectedPlace })
+        history.push("/destination-details/" + place.target);
     }
+
     return (
         <div className="home-style">
             <div className="background-transparent">
@@ -45,7 +51,6 @@ const Booking = () => {
                             <form onSubmit={handleSubmit}>
                                 <label>Origin</label> <br />
                                 <input onChange={handleInput} type="text" name="origin" placeholder="Starting Point" required /> <br />
-
                                 <label>Destination</label> <br />
                                 <input onChange={handleInput} type="text" value={place.title} name="destination" placeholder="Ending Point" disabled /> <br />
                                 <div className="row m-0">
