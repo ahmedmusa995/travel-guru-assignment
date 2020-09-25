@@ -3,6 +3,8 @@ import "firebase/auth";
 import { useHistory, useLocation } from "react-router-dom";
 
 
+//FORGET_PASSWORD
+
 export const forgetPassword = (email, signedUserState, setSignedUserFunction) => {
     if (signedUserState.email) {
         setSignedUserFunction({ ...signedUserState, forgetPasswordMessage: 'Please Check Your Email to reset your password' })
@@ -15,31 +17,17 @@ export const forgetPassword = (email, signedUserState, setSignedUserFunction) =>
     }
 
 };
+
+//EMAIL_VERIFICATION
+
 export const emailVerification = () => {
     firebase.auth().currentUser.sendEmailVerification()
         .then()
         .catch();
 }
 
-// export const handleGoogleSignIn = (signedUserState, setSignedUserFunction) => {
-//     // const provider = new firebase.auth.GoogleAuthProvider();
-//     firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
-//         .then(result => {
-//             const { displayName, email, photoURL, uid, emailVerified } = result.user;
-//             const loggedUser = { name: displayName, email, img: photoURL, isNew: false, uid, emailVerified };
-//             setSignedUserFunction(loggedUser);
-//             if (emailVerified) {
-//                 const history = useHistory();
-//                 const location = useLocation();
-//                 let { from } = location.state || { from: { pathname: "/" } };
-//                 history.replace(from)
-//             }
-//         })
-//         .catch(error => {
-//             console.log(error);
-//             setSignedUserFunction({ ...signedUserState, goggleError: error.message, error: error.message })
-//         });
-// }
+
+//HANDLE-FACEBOOK-SIGN-IN
 
 export const handleFBSignIn = (signedUserState, setSignedUserFunction) => {
     const provider = new firebase.auth.FacebookAuthProvider();
@@ -60,6 +48,8 @@ export const handleFBSignIn = (signedUserState, setSignedUserFunction) => {
             setSignedUserFunction({ ...signedUserState, fbError: error.message, error: error.message })
         });
 }
+
+//HANDLE GIT HUB SIGN IN 
 
 export const handleGithubSignIn = (signedUserState, setSignedUserFunction) => {
     var provider = new firebase.auth.GithubAuthProvider();

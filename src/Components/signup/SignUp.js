@@ -5,7 +5,7 @@ import { userContext } from '../../App';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { emailVerification } from '../userManagement/userManagemnet';
 import { faAngellist } from '@fortawesome/free-brands-svg-icons';
 
