@@ -1,7 +1,3 @@
-.signup-area {
-    background-color: white;
-}
-
 .form-area {
     width: 570px;
     border: 1px solid #F9A51A;
@@ -23,7 +19,6 @@
 
 .form-area .signUp-btn {
     width: 95%;
-    height: 40px;
     color: #F9A51A;
     border: none;
     background-color: white;

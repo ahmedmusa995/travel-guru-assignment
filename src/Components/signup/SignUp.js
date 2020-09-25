@@ -5,8 +5,9 @@ import { userContext } from '../../App';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { emailVerification, manualSignUp } from '../userManagement/userManagemnet';
+import { faCheck, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { emailVerification } from '../userManagement/userManagemnet';
+import { faAngellist } from '@fortawesome/free-brands-svg-icons';
 
 
 
@@ -26,22 +27,21 @@ const SignUp = (props) => {
             setSignedUser({ ...signedUser, email: email });
         }
         if (event.target.name === 'password') {
-            const password = event.target.value;
-            if (password.length > 7) {
-                setSignedUser({ ...signedUser, password: password });
+            const newPassword = event.target.value;
+            if (newPassword.length > 7) {
+                setSignedUser({ ...signedUser, newPassword });
             }
             else {
                 setSignedUser({ ...signedUser, passwordState: 'Password must be at least 8 characters with a number' })
             }
-
         }
         if (event.target.name === 'confirmPassword') {
             const confirmPassword = event.target.value;
-            if (signedUser.password === confirmPassword) {
-                setSignedUser({ ...signedUser, passwordState: 'Password Matched' })
+            if (signedUser.newPassword === confirmPassword) {
+                setSignedUser({ ...signedUser, passwordState: 'Password Matched', password: confirmPassword });
             }
             else {
-                setSignedUser({ ...signedUser, passwordState: "Password didn't match" })
+                setSignedUser({ ...signedUser, passwordState: "Password didn't match", password: '' })
             }
         }
         if (event.target.name === 'first') {
@@ -63,6 +63,7 @@ const SignUp = (props) => {
                     const name = signedUser.firstName + ' ' + signedUser.lastName;
                     setSignedUser({ ...signedUser, name, uid, emailVerified });
                     console.log(result.user)
+                    emailVerification();
                 })
                 .catch(error => {
                     console.log(error);
@@ -70,7 +71,7 @@ const SignUp = (props) => {
                 });
         }
         else {
-            setSignedUser({ ...signedUser, signUpError: 'Something went wrong. Try again...!!' })
+            setSignedUser({ ...signedUser, signUpError: 'Follow the instruction about password shown above' })
         }
     };
     return (
@@ -79,7 +80,7 @@ const SignUp = (props) => {
                 <div className="form-area p-3">
                     <h3 className="mb-3">Create Account</h3>
                     <form onSubmit={handleSubmitSignUp}>
-                        <input onChange={handleInput} ref={firstNameRef} name="first" className="signUp-input" type="text" placeholder="First Name" required /> <br />
+                        <input onChange={(handleInput)} ref={firstNameRef} name="first" className="signUp-input" type="text" placeholder="First Name" required /> <br />
                         <input onChange={handleInput} ref={lastNameRef} name="last" className="signUp-input" type="text" placeholder="Last Name" required /> <br />
                         <input onChange={handleInput} ref={emailRef} name="email" className="signUp-input" type="text" placeholder="Email" required /> <br />
                         <input onChange={handleInput} ref={passwordRef} name="password" className="signUp-input" type="password" placeholder="Password" required /> <br />
@@ -87,12 +88,10 @@ const SignUp = (props) => {
                         <p className="text-center"><small className="text-muted">{signedUser.passwordState && signedUser.passwordState}</small></p>
                         <input className="signUp-btn" type="submit" value="Create Account" /> <br />
                         {
-                            signedUser.uid ? <p className="text-success text-center"><FontAwesomeIcon icon={faCheck} /> Account Created, Login Now</p> :
-                                <small className="text-danger text-center d-block"> {signedUser.signUpError || signedUser.fbError || signedUser.googleError || signedUser.loginError || signedUser.githubError}</small>
+                            signedUser.uid ? <p className="text-success text-center"><FontAwesomeIcon icon={faAngellist} /> Account Created, go to your <a href="https://mail.google.com" target="_blank">mail</a> to verify</p>
+                                :
+                                <small className="text-danger text-center d-block">{signedUser.error && <FontAwesomeIcon icon={faTimesCircle} />} {signedUser.signUpError || signedUser.fbError || signedUser.googleError || signedUser.loginError || signedUser.githubError}</small>
                         }
-                        {/* {
-                            signedUser.emailVerified ? '' : <button onClick={emailVerification}>Verify Your Email</button>
-                        } */}
                     </form>
                     <p className="text-center">Have an Account? <span onClick={toggler}>Login Here</span></p>
                 </div>

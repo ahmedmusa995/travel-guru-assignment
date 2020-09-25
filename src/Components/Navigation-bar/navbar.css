@@ -9,7 +9,13 @@
     border-radius: .3rem;
     color: #F9A51A;
     transition: .2s ease;
+    margin: .5rem;
+    padding: .5rem;
 }
+
+/* .login-btn, .signUp-btn {
+    
+} */
 
 .login-btn:hover, login-btn:focus, .signOut-btn:hover, .signOut-btn:focus, .signUp-btn:focus {
     background-color: #F9A51A;
@@ -38,7 +44,7 @@
 .search-input, .search-input:focus {
     background-color: lightGray;
     height: 30px;
-    width: 400px;
+    width: 300px;
     margin: auto;
     padding: 10px;
     border: none;

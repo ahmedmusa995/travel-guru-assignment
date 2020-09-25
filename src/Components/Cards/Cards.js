@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { PlaceData } from '../../assets/PlaceData/PlaceData';
 import CardContent from '../card-content/CardContent';
 import './cards.css';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { placeContext } from '../../App';
 import { useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHandPointUp } from '@fortawesome/free-solid-svg-icons';
 
 const Cards = () => {
     const [place, setPlace] = useContext(placeContext);
@@ -27,7 +28,7 @@ const Cards = () => {
                     <h1>{place.title}</h1>
                     <p>{place.description}</p>
                     {
-                        place.title && <button className="btn book-btn font-weight-bold" onClick={() => history.push(`/destination/${place.target}`)}>book now <ArrowForwardIcon /></button>
+                        place.title && <button className="btn book-btn font-weight-bold" onClick={() => history.push(`/destination/${place.target}`)}>book now  <FontAwesomeIcon icon={faHandPointUp} /></button>
                     }
                 </div>
                 <div className="col-7">
