@@ -1,68 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project: Travel Guru
 
-## Available Scripts
+Travel Guru is travel guide for travellers as it's name refer.Though the main focus of this project was to learn several login system, I had done a lot of fancy things on this site. The most important and interesting part, for me, was integrating google map in this site. It was fun to learn new thing without any instruction from our instructor. In the home page of this site users can see three places where he can visit and if he hover over any of them he can see some details information about this place. After clicking those places he will be redirected to the login page as he was not logged in. If he log in first in the home page then he will be redirected to the booking page directly. In booking page there is a form which should be filled up before submit. After submit he will be redirected to the page where he can see hotel's information and the location of the place he has selected in a google map on the right side.
 
-In the project directory, you can run:
+## Technology
 
-### `npm start`
+- **Front-end:** *React.js, React Router, JavaScript, ES6, Material UI, HTML5 , CSS3, Font Awesome Icon*
+- **Back-end:** *Firebase, Google map react, firebase tools*
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Key Features
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Users can login with google, facebook, 
+github, or normal login
+- Users can select places where to go
+- Automatically getting some information 
+after login and used (such as, name, email, 
+photo, phone, place etc)
+- Responsive design with Material UI and 
+row CSS3 and flexbox CSS
+- Real-time alerts automatically.
+- Customizable code and can be used for 
+another project like this one.
+- User can see his destination place 
+on google map on the right side
+- Users can see hotel data on the left
+- Data's are fake but can be integrated 
+with any database.
 
-### `npm test`
+# Who Created This Beautiful App?
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [Resume](https://drive.google.com/file/d/1n_WyOpWTddo8uBbx_PLidPB8ZviP1vBQ/view)
+- [LinkedIn](https://www.linkedin.com/in/abusayeed95/)
+- [Github](https://github.com/ahmedmusa995/)
+- [FaceBook](https://www.facebook.com/sayeed.sayem.95/)
